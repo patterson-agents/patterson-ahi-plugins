@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "patterson-ahi-plugins",
+  "description": "Animal Health International domain marketplace. Sub-organization catalog for capability specific to Patterson's production animal distribution business, with lot-level traceability analytics on Microsoft Fabric.",
+  "version": "0.1.0",
+  "owner": {
+    "name": "Patterson Companies",
+    "url": "https://github.com/patterson-agents"
+  },
+  "metadata": {
+    "pluginRoot": "./plugins",
+    "relevance": {
+      "roles": ["production-animal-operations", "data-analytics", "engineer", "sales", "logistics", "compliance"],
+      "contexts": [
+        "working on Animal Health International production-animal workflows or content",
+        "modeling lot-level traceability or analytics on Microsoft Fabric",
+        "building a plugin scoped to the production animal segment rather than the enterprise catalog"
+      ]
+    }
+  },
+  "plugins": []
+}
