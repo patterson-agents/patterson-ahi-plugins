@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="300" viewBox="0 0 1280 300" role="img" aria-label="Animal Health International — Patterson Companies">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#001B34"/>
+      <stop offset="1" stop-color="#01243F"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#055ABD"/>
+      <stop offset="0.55" stop-color="#0065FF"/>
+      <stop offset="1" stop-color="#00A8E1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="300" fill="url(#bg)"/>
+  <path d="M0 232 C 320 172, 560 292, 880 232 S 1180 172, 1280 212 L 1280 300 L 0 300 Z" fill="#0C4676" opacity="0.55"/>
+  <path d="M0 262 C 300 212, 620 312, 940 252 S 1200 212, 1280 244 L 1280 300 L 0 300 Z" fill="url(#accent)" opacity="0.35"/>
+  <rect x="64" y="196" width="88" height="6" rx="3" fill="url(#accent)"/>
+  <text x="64" y="120" font-family="proxima-nova, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="54" font-weight="700" fill="#FFFFFF">Animal Health International</text>
+  <text x="64" y="166" font-family="proxima-nova, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="400" fill="#96DBF6">Production animal domain marketplace</text>
+  <text x="64" y="252" font-family="proxima-nova, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="600" letter-spacing="2" fill="#DAEDF5">PATTERSON COMPANIES</text>
+</svg>
