@@ -2,6 +2,8 @@
 # Zero-dependency validation suite for patterson-ahi-plugins.
 # POSIX sh + node one-liners. No dependencies, no network.
 set -u
+# Globbing off: $SKIP_FIND carries literal find patterns that must reach find unexpanded.
+set -f
 
 DIR=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 EXPECTED_NAME="patterson-ahi-plugins"
@@ -33,8 +35,12 @@ else
   bad "marketplace.json validation: $(cat "$tmp/mp.err")"
 fi
 
+# Untracked toolchain and build output (the site/ VitePress workspace) are not shipped
+# surface: node_modules, the VitePress cache, and dist are excluded from every check.
+SKIP_FIND='-not -path */.git/* -not -path */node_modules/* -not -path */.vitepress/cache/* -not -path */.vitepress/dist/*'
+
 # --- 2. every SKILL.md frontmatter name equals its parent directory name ---
-find "$DIR" -name SKILL.md -not -path "*/.git/*" >"$tmp/skills.list" 2>/dev/null
+find "$DIR" -name SKILL.md $SKIP_FIND >"$tmp/skills.list" 2>/dev/null
 if [ -s "$tmp/skills.list" ]; then
   while IFS= read -r f; do
     dirname_actual=$(basename "$(dirname "$f")")
@@ -63,7 +69,7 @@ fi
 # Excludes .git, generated *.lock.yml (gh-aw output, marked linguist-generated), and this
 # test script itself (which legitimately names the needles as literals to search for).
 for needle in Figtree d98a00 c0392b rul6mjk; do
-  hit=$(grep -rIl --exclude-dir=.git --exclude='*.lock.yml' --exclude='run-tests.sh' -- "$needle" "$DIR" 2>/dev/null | head -1)
+  hit=$(grep -rIl --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=cache --exclude-dir=dist --exclude='*.lock.yml' --exclude='run-tests.sh' -- "$needle" "$DIR" 2>/dev/null | head -1)
   if [ -n "$hit" ]; then
     bad "forbidden string '$needle' found in $hit"
   else
@@ -72,7 +78,7 @@ for needle in Figtree d98a00 c0392b rul6mjk; do
 done
 
 # --- 4. node:20 is forbidden everywhere, including generated files (real finding if present) ---
-hit=$(grep -rIl --exclude-dir=.git --exclude='run-tests.sh' -- "node:20" "$DIR" 2>/dev/null | head -1)
+hit=$(grep -rIl --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=cache --exclude-dir=dist --exclude='run-tests.sh' -- "node:20" "$DIR" 2>/dev/null | head -1)
 if [ -n "$hit" ]; then
   bad "forbidden reference 'node:20' found in $hit"
 else
@@ -80,7 +86,7 @@ else
 fi
 
 # --- 5. no Python files ---
-hit=$(find "$DIR" -not -path "*/.git/*" \( -name "*.py" -o -name "*.pyc" -o -name "*.pyi" \) 2>/dev/null | head -1)
+hit=$(find "$DIR" $SKIP_FIND \( -name "*.py" -o -name "*.pyc" -o -name "*.pyi" \) 2>/dev/null | head -1)
 if [ -n "$hit" ]; then
   bad "forbidden Python file: $hit"
 else
@@ -88,7 +94,7 @@ else
 fi
 
 # --- 6. no font binaries ---
-hit=$(find "$DIR" -not -path "*/.git/*" \( -iname "*.ttf" -o -iname "*.otf" -o -iname "*.woff" -o -iname "*.woff2" -o -iname "*.eot" \) 2>/dev/null | head -1)
+hit=$(find "$DIR" $SKIP_FIND \( -iname "*.ttf" -o -iname "*.otf" -o -iname "*.woff" -o -iname "*.woff2" -o -iname "*.eot" \) 2>/dev/null | head -1)
 if [ -n "$hit" ]; then
   bad "forbidden font binary: $hit"
 else
@@ -101,7 +107,7 @@ fi
 # nothing in except paths, not a brand surface.
 # Raster binaries (webp/png/jpg/gif/ico) are excluded: they are not text, and their bytes
 # can decode into the emoji range by coincidence. SVG stays in scope because it is text.
-brand_files=$(find "$DIR" -not -path "*/.git/*" \( -iname "README.md" -o -path "*/docs/*" -o -iname "marketplace.json" \) -type f -not -iname "*.webp" -not -iname "*.png" -not -iname "*.jpg" -not -iname "*.jpeg" -not -iname "*.gif" -not -iname "*.ico" 2>/dev/null)
+brand_files=$(find "$DIR" $SKIP_FIND \( -iname "README.md" -o -path "*/docs/*" -o -iname "marketplace.json" \) -type f -not -iname "*.webp" -not -iname "*.png" -not -iname "*.jpg" -not -iname "*.jpeg" -not -iname "*.gif" -not -iname "*.ico" 2>/dev/null)
 emoji_hit=""
 if [ -n "$brand_files" ]; then
   emoji_hit=$(node -e "
