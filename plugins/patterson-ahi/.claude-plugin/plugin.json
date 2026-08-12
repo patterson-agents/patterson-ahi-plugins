@@ -1,0 +1,22 @@
+{
+  "name": "patterson-ahi",
+  "version": "0.1.0",
+  "description": "Animal Health International: production animal distribution to cattle, dairy, swine, poultry, and equine operations. Domain agents, recall and territory-economics skills, and lot-level traceability on Microsoft Fabric.",
+  "author": {
+    "name": "Patterson Companies"
+  },
+  "homepage": "https://github.com/patterson-agents/patterson-ahi-plugins/tree/main/plugins/patterson-ahi",
+  "repository": "https://github.com/patterson-agents/patterson-ahi-plugins",
+  "license": "LicenseRef-Patterson-Internal",
+  "keywords": [
+    "production-animal",
+    "distribution",
+    "traceability",
+    "recall",
+    "microsoft-fabric",
+    "lakehouse",
+    "onelake",
+    "power-bi",
+    "patterson"
+  ]
+}

@@ -22,6 +22,7 @@ if node -e "
   const raw = fs.readFileSync(path.join(root, '.claude-plugin/marketplace.json'), 'utf8');
   const m = JSON.parse(raw);
   if (m.name !== expected) { console.error('name is ' + JSON.stringify(m.name) + ', expected ' + expected); process.exit(1); }
+  if (!Array.isArray(m.plugins) || m.plugins.length === 0) { console.error('plugins array is empty; this catalog ships patterson-ahi'); process.exit(1); }
   for (const p of (m.plugins || [])) {
     if (!p.source || !p.source.startsWith('./')) { console.error('plugin ' + p.name + ' source does not start with ./: ' + p.source); process.exit(1); }
     if (!fs.existsSync(path.join(root, p.source))) { console.error('plugin ' + p.name + ' source does not exist: ' + p.source); process.exit(1); }

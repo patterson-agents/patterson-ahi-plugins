@@ -18,5 +18,18 @@
       ]
     }
   },
-  "plugins": []
+  "plugins": [
+    {
+      "name": "patterson-ahi",
+      "source": "./plugins/patterson-ahi",
+      "description": "Animal Health International: production animal distribution domain agents, recall and territory-economics skills, and lot-level traceability on Microsoft Fabric.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Patterson Companies"
+      },
+      "license": "LicenseRef-Patterson-Internal",
+      "category": "domain",
+      "keywords": ["production-animal", "distribution", "traceability", "recall", "microsoft-fabric", "lakehouse"]
+    }
+  ]
 }
