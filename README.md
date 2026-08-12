@@ -102,6 +102,21 @@ Enterprise standards and brand rules arrive by reference, not by copy: this repo
 `.claude/settings.json` enables `patterson-engineering@patterson-corp` and
 `patterson-brand@patterson-corp` alongside the local catalog.
 
+## Documentation site
+
+A VitePress site under [`site/`](site/) documents the catalog, the plugin, and the
+Microsoft Fabric traceability design, themed with the documented Patterson tokens:
+
+```bash
+cd site
+bun install
+bun run dev        # local preview
+bun run build      # static build to site/docs/.vitepress/dist
+```
+
+The `site/` workspace is the repository's one pinned toolchain (VitePress 2 + Vue via
+`bun.lock`); everything else remains zero-dependency.
+
 ## Validation
 
 ```bash

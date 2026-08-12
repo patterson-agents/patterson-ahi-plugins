@@ -1,0 +1,15 @@
+{
+  "name": "patterson-ahi-plugins-site",
+  "private": true,
+  "type": "module",
+  "license": "LicenseRef-Patterson-Internal",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "serve": "vitepress serve docs"
+  },
+  "devDependencies": {
+    "vue": "3.5.41",
+    "vitepress": "2.0.0-alpha.19"
+  }
+}

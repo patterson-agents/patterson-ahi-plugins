@@ -1,0 +1,138 @@
+/**
+ * Patterson Companies VitePress theme overrides.
+ *
+ * Every hex is a documented Patterson token from
+ * patterson-corp/plugins/patterson-brand/skills/design-tokens/assets/tokens.json
+ * (Brand Guide VERSION 3.2025 = BG25; 2020 design system = DS20; pattern library = DPL).
+ * Nothing is invented; the citation follows each value.
+ */
+
+:root {
+  /* Links and interactive text on light grounds: DS20 p.8 link blue (WCAG substitute for sky). */
+  --vp-c-brand-1: #147CBD; /* color.digital.link */
+  /* Hover: secondary brand blue. BG25 p.24. */
+  --vp-c-brand-2: #147EC2; /* color.brand.blue */
+  /* Solid fills (buttons): digital sky blue, the shipped DPL .button background. DS20 p.7. */
+  --vp-c-brand-3: #269BCB; /* color.digital.sky */
+  /* Subtle brand wash: sky tint 25. BG25 p.24 tint ramp. */
+  --vp-c-brand-soft: rgba(0, 168, 225, 0.14); /* color.brand.sky @ soft */
+
+  /* Body copy: 80% black. BG25 p.24. */
+  --vp-c-text-1: #58585B; /* color.brand.gray */
+  --vp-c-text-2: #828284; /* color.tint.gray75 */
+  --vp-c-text-3: #ACACAD; /* color.tint.gray50 */
+
+  /* Grounds: white for content-heavy applications (BG25 p.24); grey-light backgrounds (DS20 p.7). */
+  --vp-c-bg: #FFFFFF;      /* color.brand.white */
+  --vp-c-bg-alt: #F8F8F8;  /* color.digital.greyLight */
+  --vp-c-bg-soft: #F8F8F8; /* color.digital.greyLight */
+  --vp-c-bg-elv: #FFFFFF;
+
+  /* Dividers and form borders. DPL. */
+  --vp-c-divider: #D8D8D8; /* color.digital.rule */
+  --vp-c-border: #A8A9AC;  /* color.digital.fieldBorder */
+  --vp-c-gutter: #ECECEC;  /* color.brand.grayLight */
+
+  /* Status. DPL .message-box--* (BG25 publishes no status hexes). */
+  --vp-c-danger-1: #D0021B;  /* color.status.error */
+  --vp-c-danger-2: #D0021B;
+  --vp-c-danger-soft: rgba(208, 2, 27, 0.12);
+  --vp-c-tip-1: #00817D;     /* color.brand.teal - eyebrow colour (DPL) */
+  --vp-c-tip-2: #00817D;
+  --vp-c-tip-soft: rgba(0, 129, 125, 0.12);
+  --vp-c-warning-1: #B27509; /* darkened from color.status.warning #F5A623 for contrast on light */
+  --vp-c-warning-2: #F5A623; /* color.status.warning */
+  --vp-c-warning-soft: rgba(245, 166, 35, 0.14);
+
+  /* Typography: Proxima Nova at every tier, Arial fallback. BG25 p.25; stack verbatim from DPL body{}. */
+  --vp-font-family-base: 'proxima-nova', Arial, sans-serif;
+
+  /* Rounded corners: 5px radius. BG25 p.57. */
+  --vp-border-radius: 5px;
+
+  /* Buttons: sentence case, semibold, sky fill with white text. BG25 p.57, DS20 p.15. */
+  --vp-button-brand-bg: #269BCB;          /* color.digital.sky (DPL .button) */
+  --vp-button-brand-text: #FFFFFF;        /* color.brand.white */
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-hover-bg: #147EC2;    /* color.brand.blue */
+  --vp-button-brand-hover-text: #FFFFFF;
+  --vp-button-brand-active-bg: #003767;   /* color.brand.navy */
+  --vp-button-brand-active-text: #FFFFFF;
+  --vp-button-alt-bg: #FFFFFF;            /* secondary button: white ground, navy copy. DS20 p.15 */
+  --vp-button-alt-text: #003767;          /* color.brand.navy */
+  --vp-button-alt-border: #003767;
+  --vp-button-alt-hover-bg: #BFE9F8;      /* color.tint.sky25 */
+  --vp-button-alt-hover-text: #003767;
+  --vp-button-alt-hover-border: #003767;
+
+  /* Hero and feature accents. */
+  --vp-home-hero-name-color: #003767;     /* color.brand.navy - headlines */
+  --vp-c-indigo-1: #003767;
+  --vp-c-indigo-2: #147EC2;
+  --vp-c-indigo-3: #269BCB;
+}
+
+/* On-navy variant. Patterson publishes no "dark mode"; this composes only the documented
+   on-dark accent set (DS20 p.8) and the navy grounds (BG25 p.52, DPL navy-deep). */
+.dark {
+  --vp-c-brand-1: #6DCFF6;   /* color.brand.blueLight - readable link on navy */
+  --vp-c-brand-2: #92DBF8;   /* color.tint.blueLight75 */
+  --vp-c-brand-3: #269BCB;   /* color.digital.sky - "sky blue for dark backgrounds" (DS20 p.8) */
+  --vp-c-brand-soft: rgba(38, 155, 203, 0.22);
+
+  --vp-c-text-1: #FFFFFF;    /* color.brand.white - white reverse (BG25 p.14) */
+  --vp-c-text-2: #BFCDD9;    /* color.tint.navy25 */
+  --vp-c-text-3: #809BB3;    /* color.tint.navy50 */
+
+  --vp-c-bg: #001C34;        /* color.digital.navyDeep (DPL .button--dark:hover) */
+  --vp-c-bg-alt: #003767;    /* color.brand.navy (BG25 p.52 full-frame ground) */
+  --vp-c-bg-soft: #003767;   /* color.brand.navy */
+  --vp-c-bg-elv: #003767;
+
+  --vp-c-divider: #40698D;   /* color.tint.navy75 */
+  --vp-c-border: #40698D;    /* color.tint.navy75 */
+  --vp-c-gutter: #003767;
+
+  --vp-c-tip-1: #6DCFF6;     /* on-navy: blueLight replaces teal for contrast */
+  --vp-c-tip-soft: rgba(109, 207, 246, 0.16);
+  --vp-c-warning-1: #F5A623; /* color.status.warning */
+
+  --vp-button-brand-bg: #269BCB;        /* color.digital.sky */
+  --vp-button-brand-hover-bg: #6DCFF6;  /* color.brand.blueLight */
+  --vp-button-brand-hover-text: #001C34;
+  --vp-button-brand-active-bg: #6DCFF6;
+  --vp-button-brand-active-text: #001C34;
+  --vp-button-alt-bg: transparent;
+  --vp-button-alt-text: #FFFFFF;
+  --vp-button-alt-border: #FFFFFF;
+  --vp-button-alt-hover-bg: #40698D;
+  --vp-button-alt-hover-text: #FFFFFF;
+
+  --vp-home-hero-name-color: #6DCFF6;
+}
+
+/* Headlines carry navy on light grounds (BG25 p.24: headlines, brand accents). */
+h1, h2, h3, h4, h5, h6 {
+  color: #003767;
+}
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #FFFFFF;
+}
+
+/* Headline tracking -10 (BG25 p.27) and sentence case are content rules; tracking applied here. */
+h1, h2 {
+  letter-spacing: -0.01em;
+}
+
+/* 5px radius on the pieces VitePress rounds harder by default (BG25 p.57). */
+.VPButton,
+.vp-doc div[class*='language-'],
+.custom-block {
+  border-radius: 5px;
+}
+
+/* Buttons never all caps (BG25 p.57); semibold CTA weight (BG25 p.25). */
+.VPButton {
+  text-transform: none;
+  font-weight: 600;
+}
