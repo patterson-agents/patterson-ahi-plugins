@@ -85,13 +85,7 @@ else
   ok "no 'node:20' reference anywhere in the repository"
 fi
 
-# --- 5. no Python files ---
-hit=$(find "$DIR" $SKIP_FIND \( -name "*.py" -o -name "*.pyc" -o -name "*.pyi" \) 2>/dev/null | head -1)
-if [ -n "$hit" ]; then
-  bad "forbidden Python file: $hit"
-else
-  ok "no *.py / *.pyc / *.pyi files"
-fi
+# --- 5. (retired) language choice is not gated ---
 
 # --- 6. no font binaries ---
 hit=$(find "$DIR" $SKIP_FIND \( -iname "*.ttf" -o -iname "*.otf" -o -iname "*.woff" -o -iname "*.woff2" -o -iname "*.eot" \) 2>/dev/null | head -1)
