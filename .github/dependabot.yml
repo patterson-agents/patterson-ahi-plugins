@@ -1,0 +1,26 @@
+# github-actions is the ONLY ecosystem declared here, deliberately.
+#
+# This is a zero-dependency, agent-configuration repository: no package manifest, no
+# lockfile, no vendored modules. Declaring a package ecosystem with no manifest to read
+# produces a Dependabot error on every scheduled run, which trains reviewers to ignore the
+# Dependabot tab. Add an ecosystem only when the corresponding manifest actually lands here.
+#
+# What this covers: the pinned action versions used by this repository's workflows — the
+# repository's real third-party dependency surface.
+
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+    commit-message:
+      prefix: "chore"
+    labels:
+      - "dependencies"
+      - "github-actions"
