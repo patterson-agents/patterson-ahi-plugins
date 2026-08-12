@@ -6,6 +6,12 @@
         "source": "github",
         "repo": "patterson-agents/patterson-corp"
       }
+    },
+    "patterson-ahi-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "patterson-agents/patterson-ahi-plugins"
+      }
     }
   },
   "enabledPlugins": {
