@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "extraKnownMarketplaces": {
+    "patterson-corp": {
+      "source": {
+        "source": "github",
+        "repo": "patterson-agents/patterson-corp"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "patterson-engineering@patterson-corp": true,
+    "patterson-brand@patterson-corp": true
+  }
+}
